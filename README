@@ -1,0 +1,30 @@
+[Usage]
+
+= Client Side
+
+== HTML
+  > <script href="jquery.js" type="text/javascript" />
+  > <script href="autopager.js" type="text/javascript" />
+  > <script type="text/javascript">
+  > jQuery(function($){
+  >     $("body").autopager();
+  > });
+  > </script>
+
+== HTTP Request
+> http://app.yourhost/items?page=2
+
+= Server Side
+
+== Sample Code(Ruby On Rails)
+  > require "will_paginate"
+  > class ItemsController
+  >   def index
+  >     @items = Item.paginate(
+  >       :page => params[:page],
+  >       :order => "created_at DESC",
+  >       :per_page => 10
+  >     )
+  >   end
+  > end
+
